@@ -27,7 +27,7 @@ function onFilterChange() {
 
 function renderCountryCard(country) {
     if (country.length == null) {
-        return onFetchErr();
+        return (onFetchErr(),clearInput());
     } else if (country.length > 10) {
         errMsg.errorMesg();
         return;
@@ -37,11 +37,15 @@ function renderCountryCard(country) {
     } else {
         const markup = countryCard(country);
         refs.cardContainer.insertAdjacentHTML("afterbegin", markup);
+        clearInput();
     }
-}
+};
 function onFetchErr(err) {
     errMsg.notFound();
-}
+};
 function clear() {
     refs.cardContainer.innerHTML = '';
-}
+};
+function clearInput() {
+    refs.input.value = '';
+};
