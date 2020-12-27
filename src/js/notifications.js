@@ -9,5 +9,10 @@ function errorMesg() {
     error({
     text: 'Too many matches found. Please enter a more speific query!'
   });
-}
-export default {errorMesg}
+};
+function notFound() {
+  error({
+    text: 'Not Found. Please enter a more correct query!'
+  })
+};
+export default {errorMesg, notFound}
