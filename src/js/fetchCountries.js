@@ -14,7 +14,7 @@ function onFilterChange() {
     let query = '';
 
     if (nameInput.length > 0 && nameInput.trim() !== '') {
-        query = nameInput.trim(query);
+        query = nameInput.trim();
     } else {
         return;
     };
@@ -27,20 +27,20 @@ function onFilterChange() {
 
 function renderCountryCard(country) {
     if (country.length == null) {
-        return (onFetchErr(),clearInput());
+        onFetchErr();
+        clearInput();
     } else if (country.length > 10) {
         errMsg.errorMesg();
-        return;
+        // return;
     } else if (country.length > 1 && country.length <= 10) {
         const markup = countryList(country);
         refs.cardContainer.insertAdjacentHTML("afterbegin", markup);
     } else {
         const markup = countryCard(country);
         refs.cardContainer.insertAdjacentHTML("afterbegin", markup);
-        clearInput();
     }
 };
-function onFetchErr(err) {
+function onFetchErr() {
     errMsg.notFound();
 };
 function clear() {

@@ -1,9 +1,10 @@
 import { notice, error } from '@pnotify/core/dist/PNotify.js';
+import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 import { defaults } from '@pnotify/core';
 defaults.sticker = false;
 defaults.closer = false;
-defaults.delay = 1000;
+defaults.delay = 2000;
 
 function errorMesg() {
     notice({
